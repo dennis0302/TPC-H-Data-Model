@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: raw
+    database: SNOWFLAKE_SAMPLE_PROD  
+    schema: raw  
+    tables:
+      - name: TPCH_SF1_ORDERS
+        description: "Raw Sample TPCH_SF1 orders data from Snowflake"
+      - name: TPCH_SF1_CUSTOMER
+        description: "Raw Sample TPCH_SF1 customer data from Snowflake"
+      - name: TPCH_SF1_NATION
+        description: "Raw Sample TPCH_SF1 nation data from Snowflake"
+      - name: TPCH_SF1_REGION
+        description: "Raw Sample TPCH_SF1 region data from Snowflake"

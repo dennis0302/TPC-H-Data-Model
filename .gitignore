@@ -1,0 +1,10 @@
+
+target/
+dbt_packages/
+logs/
+.user.yml
+profiles.yml
+*.sw*
+.python-version
+*.sw*
+.DS_Store

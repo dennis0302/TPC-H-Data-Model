@@ -1,0 +1,40 @@
+models:
+  - name: customer
+    description: "customer model"
+    columns:
+      - name: customer_key
+        description: "The primary key for the customer table"
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        tests:
+          - not_null
+      - name: customer_address
+        tests:
+          - not_null
+      - name: customer_nation_key
+        tests:
+          - not_null
+          - relationships:
+              to: source('raw', 'TPCH_SF1_NATION')
+              field: N_NATIONKEY
+      - name: customer_region_key
+        tests:
+          - not_null
+          - relationships:
+              to: source('raw', 'TPCH_SF1_REGION')
+              field: R_REGIONKEY
+      - name: customer_phone
+        tests:
+          - not_null
+      - name: customer_acctbal
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: -1000 
+      - name: customer_mktsegment
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['AUTOMOBILE', 'HOUSEHOLD', 'BUILDING', 'MACHINERY','FURNITURE']
