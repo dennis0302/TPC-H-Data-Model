@@ -1,15 +1,8 @@
-Welcome to your new dbt project!
-
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+### Notes 
+- Check out instructions on [dbt Core Installation Guide](https://docs.getdbt.com/docs/core/installation-overview) before running locally
+- Custom schemas were implemented using `generate_schema_name.sql` macro. Config was specified in `dbt_project.yml`
+  - Raw data is stored in `raw` schema, defined as source in `raw.yml`
+  - Dimension models are located in `dimensions` schema
+  - Fact models are located in `facts` schema
+- In addition to the standard generic dbt tests, `dbt_expectations` package was used for testing. Make sure you run `dbt deps` before running locally
+- run `dbt build` to materialize models
